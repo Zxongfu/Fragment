@@ -2,6 +2,7 @@ package com.example.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import static android.content.ContentValues.TAG;
 
 public class BFragment extends Fragment {
     private TextView textView;
@@ -27,6 +30,7 @@ public class BFragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
+        Log.d(TAG, "onAttach: ");
         super.onAttach(context);
     }
 }

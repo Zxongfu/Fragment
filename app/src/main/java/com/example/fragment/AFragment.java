@@ -70,13 +70,13 @@ public class AFragment extends Fragment {
                     Fragment fragment = getFragmentManager().findFragmentByTag("aFragment");
                     //if fragment tag not equals null
                     if (fragment != null) {
+                        getFragmentManager().beginTransaction().hide(fragment).add(R.id.frameLayout, bFragment, "bFragment").addToBackStack(null).commitAllowingStateLoss();
 //                        FragmentManager fragmentManager = getFragmentManager();
 //                        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
 //                        Fragment f = fragmentManager.findFragmentByTag("aFragment");
 //                        fragmentTransaction.hide(f);
 //                        fragmentTransaction.add(R.id.frameLayout, bFragment, "bFragment");
 //                        fragmentTransaction.commit();
-                        getFragmentManager().beginTransaction().add(R.id.frameLayout, bFragment, "bFragment").addToBackStack(fragment.toString()).commitAllowingStateLoss();
                     }
                 }
 
