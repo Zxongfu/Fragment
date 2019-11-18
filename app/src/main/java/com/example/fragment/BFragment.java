@@ -25,8 +25,4 @@ public class BFragment extends Fragment {
        textView =view.findViewById(R.id.textView);
     }
 
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-    }
 }
