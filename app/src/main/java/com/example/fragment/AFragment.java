@@ -43,6 +43,11 @@ public class AFragment extends Fragment {
         Log.d(TAG, "onCreate: ");
     }
 
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("123", "123");
+    }
 
     @Nullable
     @Override
@@ -82,10 +87,13 @@ public class AFragment extends Fragment {
 
             }
         });
-
-        if (getArguments() != null) {
-            textView.setText(getArguments().getString("title"));
+        if (savedInstanceState != null) {
+            textView.setText(savedInstanceState.getString("123"));
         }
+
+//        if (getArguments() != null) {
+//            textView.setText(getArguments().getString("title"));
+//        }
     }
 
     @Override
