@@ -11,34 +11,22 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     AFragment aFragment;
-    BFragment bFragment;
-    private Button button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (bFragment == null) {
-                    bFragment = new BFragment();
-                    // B replace A
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, bFragment).commitAllowingStateLoss();
-                }
-            }
-        });
-
         //newInstance() pattern
         aFragment = AFragment.newInstance("Hello");
 
-//        FragmentTransaction fragmentTransaction =getSupportFragmentManager().beginTransaction();
-//        fragmentTransaction.add(R.id.frameLayout, aFragment);
-//        fragmentTransaction.commitAllowingStateLoss();
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.add(R.id.frameLayout, aFragment, "aFragment");
+//        fragmentTransaction.commit();
 
         //use Anonymous put AFragment into Activity
-        getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, aFragment).commitAllowingStateLoss();
+        getSupportFragmentManager().beginTransaction().add(R.id.frameLayout, aFragment, "aFragment").commitAllowingStateLoss();
     }
 }
